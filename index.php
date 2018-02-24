@@ -7,12 +7,11 @@ $sent = "";
 
 if( isset($_POST['submit'])) {
 	$name = $_POST['name'];    
-	if(empty($_POST['name'])) { $required = "*Name required"; } 
 	if(!preg_match("/^[a-zA-Z0-9 ]*$/",$name)) {
-	    	    $required = "*Only letters and numbers allowed";
-	        } else {
-	        	$sent = "Your message has been posted"; }
-
+	    $required = "*Only letters and numbers allowed";
+	} else {
+	    $sent = "Your message has been posted"; 
+	}
 
 function security($post) {
 		$x = trim($post); 
@@ -20,7 +19,6 @@ function security($post) {
 		$x = htmlspecialchars($x);  
 		return $x;
 	}
-
 
     $name = security($name);
     
